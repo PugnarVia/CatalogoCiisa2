@@ -1,0 +1,56 @@
+﻿@model IEnumerable<CatalogoCiisa2.Models.Producto>
+
+@{
+    ViewBag.Title = "Catálogo Ciisa-PSW";
+}
+
+<div class="jumbotron">
+    <h1>Bienvenido al catálogo de productos de infromática</h1>
+    <p class="lead">Aqui puede ver los productos con los que contamos, asi como eliminar, agregar o editar los productos que usted quiera.</p>
+</div>
+
+<p>
+    @Html.ActionLink("Producto nuevo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.producto_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.precioUnit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.stock)
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.activo == 1)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.producto_ID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.precioUnit)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.stock)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Editar", "Edit", new { id = item.producto_ID }) |
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.producto_ID })
+                    </td>
+                </tr>
+            }
+        }
+
+</table>

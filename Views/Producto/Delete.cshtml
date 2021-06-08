@@ -1,0 +1,66 @@
+﻿@model CatalogoCiisa2.Models.Producto
+
+<h2>¿Estás seguro de eliminar este registro?</h2>
+<div>
+    <h3>Eliminar producto</h3>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.precioUnit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.precioUnit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.stock)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.stock)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.activo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.activo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaAlta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaAlta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaMod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaMod)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Regresar a la lista", "Index")
+        </div>
+    }
+</div>
